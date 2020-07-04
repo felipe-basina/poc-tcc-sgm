@@ -42,5 +42,17 @@ public class UserValidationServiceTest {
 		final String cpfWithEspecialCharacters = "";
 		Assert.assertFalse(this.userValidationService.isValidCpf(cpfWithEspecialCharacters));
 	}
+	
+	@Test
+	public void testIsServidorUserWithEvenLastDigitDocument() {
+		final String cpfWithEspecialCharacters = "111.222.333-44";
+		Assert.assertFalse(this.userValidationService.isServidorUser(cpfWithEspecialCharacters));
+	}
+	
+	@Test
+	public void testIsServidorUserWithOddLastDigitDocument() {
+		final String cpfWithEspecialCharacters = "111.222.333-45";
+		Assert.assertTrue(this.userValidationService.isServidorUser(cpfWithEspecialCharacters));
+	}
 
 }

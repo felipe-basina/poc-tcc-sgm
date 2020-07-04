@@ -24,4 +24,15 @@ public class UserValidationService {
 		return newDocument.length() == CPF_TOTAL_CHARACTERS ? Boolean.TRUE : Boolean.FALSE;
 	}
 	
+	public boolean isServidorUser(final String document) {
+		if (!this.isValidCpf(document)) {
+			return Boolean.FALSE;
+		}
+		final String lastDigitAsString = document.substring(document.length() - 1);
+		final int lastDigit = Integer.parseInt(lastDigitAsString);
+		final boolean isServidorUser = lastDigit % 2 > 0;
+		log.info("Is {} a servidor user? {}", document, isServidorUser);
+		return isServidorUser;
+	}
+	
 }
