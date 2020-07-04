@@ -12,6 +12,6 @@ import lombok.ToString;
 public class UserValidationResponseDTO {
 
 	@JsonProperty(value = "is_server_user")
-	private boolean isServerUser;
+	private boolean serverUser;
 	
 }
