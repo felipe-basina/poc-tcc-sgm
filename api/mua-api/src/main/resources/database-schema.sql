@@ -23,6 +23,7 @@ CREATE TABLE public.usuario (
 	email varchar(255) NULL,
 	sobrenome varchar(255) NULL,
 	nome varchar(255) NULL,
+	usuario varchar(255) NULL,
 	senha varchar(255) NULL,
 	status varchar(255) NULL,
 	data_atualizacao timestamp NULL,

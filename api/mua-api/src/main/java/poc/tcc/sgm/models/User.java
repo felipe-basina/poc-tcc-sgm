@@ -17,13 +17,19 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import poc.tcc.sgm.constants.DocumentType;
 import poc.tcc.sgm.constants.UserStatusType;
 
 @Data
+@Builder
 @Entity
 @Table(name = "USUARIO")
+@NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable {
 
 	/**
