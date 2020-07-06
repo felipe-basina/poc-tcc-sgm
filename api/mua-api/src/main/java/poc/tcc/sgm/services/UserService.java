@@ -17,13 +17,18 @@ public class UserService {
 	
 	private SafimAPIClient safimAPIClient;
 	
+	private UserVerificationService userVerificationService;
+	
 	@Autowired
-	public UserService(UserRepository userRepository, SafimAPIClient safimAPIClient) {
+	public UserService(UserRepository userRepository, SafimAPIClient safimAPIClient,
+			UserVerificationService userVerificationService) {
 		this.userRepository = userRepository;
 		this.safimAPIClient = safimAPIClient;
+		this.userVerificationService = userVerificationService;
 	}
 	
 	public UserOutDTO createUser(UserInDTO userInDTO) {
+		this.userVerificationService.checkUser(userInDTO);
 		return null;
 	}
 	

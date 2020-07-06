@@ -61,5 +61,10 @@ public class UserInDTO implements Serializable {
 				.userName(this.userName)
 			.build();
 	}
+	
+	@Transient
+	public boolean isCPFdocumentType() {
+		return DocumentType.CPF.name().equalsIgnoreCase(this.documentType);
+	}
 
 }
