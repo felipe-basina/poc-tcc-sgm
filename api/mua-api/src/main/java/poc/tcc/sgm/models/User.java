@@ -14,7 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -86,8 +86,8 @@ public class User implements Serializable {
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date updateDate;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "PERFIL_ID", referencedColumnName = "id")
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "PERFIL_ID")
 	private UserProfile profile;
 
 	@Transient
