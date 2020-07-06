@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+      <base target="_parent">
+      <title>SGM - SISTEMA DE GESTÃO INTEGRADA MUNICIPAL</title>
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.0/css/all.css">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&amp;display=swap">
+      <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/bootstrap.min.css">
+      <link rel="stylesheet" href="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/css/mdb.min.css">
+      <link rel="stylesheet" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/compiled-addons-4.19.1.min.css">
+      <link rel="stylesheet" type="text/css" href="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/css/mdb-plugins-gathered.min.css">
+      <style></style>
+      <style type="text/css">/* Chart.js */
+         @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+      </style>
+    </head>
+   <body aria-busy="true">
+      <!-- Material form register -->
+      <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+         <h5 class="my-0 mr-md-auto font-weight-normal"><a th:href="@{/}">SGM - SISTEMA DE GESTÃO INTEGRADA MUNICIPAL</a></h5>
+      </div>
+      <!--Card content-->
+      <div class="card-body px-lg-5 pt-0">
+         <!-- Form -->
+         <form class="text-center" style="color: #757575;" action="#!">
+            <div class="form-row">
+               <div class="col">
+                  <!-- First name -->
+                  <div class="md-form">
+                     <input type="text" id="materialRegisterFormFirstName" class="form-control">
+                     <label for="materialRegisterFormFirstName" class="">Nome</label>
+                  </div>
+               </div>
+               <div class="col">
+                  <!-- Last name -->
+                  <div class="md-form">
+                     <input type="text" id="materialRegisterFormLastName" class="form-control">
+                     <label for="materialRegisterFormLastName" class="active">Sobrenome</label>
+                  </div>
+               </div>
+            </div>
+
+            <div class="form-row">
+               <div class="col">
+                  <!-- E-mail -->
+                  <div class="md-form">
+                     <input type="text" id="materialRegisterFormEmail" class="form-control">
+                     <label for="materialRegisterFormEmail" class="">E-mail</label>
+                  </div>
+               </div>
+               <div class="col">
+                  <!-- Username -->
+                  <div class="md-form">
+                     <input type="text" id="materialRegisterFormUsername" class="form-control">
+                     <label for="materialRegisterFormUsername" class="active">Usuário (acesso aplicação)</label>
+                  </div>
+               </div>
+            </div>
+
+            <div class="form-row">
+               <div class="col">
+                  <div class="md-form">
+                     <select name="select" id="materialRegisterFormDocumentType" class="form-control">
+                        <option value=""></option> 
+                        <option value="CPF">CPF</option> 
+                        <option value="CNPJ">CNPJ</option>
+                      </select>
+                     <label for="materialRegisterFormDocumentType" class="active" style="margin-top: -15px;">Tipo Documento</label>
+                  </div>
+               </div>
+               <div class="col">
+                  <div class="md-form">
+                     <input type="text" id="materialRegisterFormDocumentNumber" class="form-control">
+                     <label for="materialRegisterFormDocumentNumber" class="active">Número Documento</label>
+                  </div>
+               </div>
+            </div>
+
+            <div class="form-row">
+               <div class="col">
+                  <!-- Password -->
+                  <div class="md-form">
+                     <input type="password" id="materialRegisterFormPassword" class="form-control" aria-describedby="materialRegisterFormPasswordHelpBlock">
+                     <label for="materialRegisterFormPassword">Senha</label>
+                     <small id="materialRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
+                     Pelo menos 8 caracteres com letras e números
+                     </small>
+                  </div>
+               </div>
+               <div class="col">
+                  <!-- Password -->
+                  <div class="md-form">
+                     <input type="password" id="materialRegisterFormRepeatPassword" class="form-control" aria-describedby="materialRegisterFormRepeatPasswordHelpBlock">
+                     <label for="materialRegisterFormRepeatPassword">Repetir senha</label>
+                  </div>
+               </div>
+            </div>
+
+            <!-- Sign up button -->
+            <button class="btn-lg btn-primary" type="submit">Cadastrar</button>
+         </form>
+         <!-- Form -->
+      </div>
+      <!-- Material form register -->
+      <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/jquery.min.js"></script>
+      <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/popper.min.js"></script>
+      <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/bootstrap.min.js"></script>
+      <script type="text/javascript" src="https://mdbootstrap.com/api/snippets/static/download/MDB-Pro_4.19.1/js/mdb.min.js"></script>
+      <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/bundles/4.19.1/compiled-addons.min.js"></script>
+      <script type="text/javascript" src="https://mdbootstrap.com/wp-content/themes/mdbootstrap4/js/plugins/mdb-plugins-gathered.min.js"></script>
+      <script type="text/javascript"></script>
+      <div class="hiddendiv common"></div>
+   </body>
+</html>
