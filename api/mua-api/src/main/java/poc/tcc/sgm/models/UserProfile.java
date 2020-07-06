@@ -12,6 +12,7 @@ import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode.Exclude;
 import lombok.NoArgsConstructor;
 
 @Data
@@ -33,6 +34,7 @@ public class UserProfile implements Serializable {
 	@Column(name = "NOME")
 	private String name;
 	
+	@Exclude
 	@OneToOne(mappedBy = "profile")
 	private User user;
 

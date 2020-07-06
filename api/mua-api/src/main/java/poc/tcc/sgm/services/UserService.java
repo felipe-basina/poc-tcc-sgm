@@ -34,7 +34,8 @@ public class UserService {
 	public UserOutDTO createUser(UserInDTO userInDTO) {
 		this.userVerificationService.checkUser(userInDTO);
 		UserProfile userProfile = this.userProfileService.getUserProfile(userInDTO);
-		User newUser = this.userRepository.save(userInDTO.convertToNewEntity(userProfile));
+		User newUser = userInDTO.convertToNewEntity(userProfile);
+		newUser = this.userRepository.save(newUser);
 		log.info("User {} | {} created!", newUser.getId(), newUser.getUserName());
 		return newUser.convertToDto();
 	}

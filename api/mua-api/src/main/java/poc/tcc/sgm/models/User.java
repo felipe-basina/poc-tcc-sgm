@@ -22,13 +22,16 @@ import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
+import lombok.EqualsAndHashCode.Exclude;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import poc.tcc.sgm.constants.DocumentType;
 import poc.tcc.sgm.constants.UserStatusType;
 import poc.tcc.sgm.dtos.UserOutDTO;
 
-@Data
+@Getter
+@Setter
 @Builder
 @Entity
 @Table(name = "USUARIO")
@@ -57,9 +60,11 @@ public class User implements Serializable {
 	@Column(name = "USUARIO")
 	private String userName;
 	
+	@Exclude
 	@Column(name = "SENHA")
 	private String password;
 	
+	@Exclude
 	@Column(name = "STATUS")
 	@Enumerated(value = EnumType.STRING)
 	private UserStatusType status;
@@ -71,10 +76,12 @@ public class User implements Serializable {
 	@Column(name = "NUMERO_DOCUMENTO")
 	private String documentNumber;
 	
+	@Exclude
 	@Column(name = "DATA_CRIACAO")
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date creationDate;
 	
+	@Exclude
 	@Column(name = "DATA_ATUALIZACAO")
 	@Temporal(value = TemporalType.TIMESTAMP)
 	private Date updateDate;
@@ -104,6 +111,58 @@ public class User implements Serializable {
 				.updateDate(this.convertToLocalDateTime(this.getUpdateDate()).toString())
 				.userName(this.getUserName())
 			.build();
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((documentNumber == null) ? 0 : documentNumber.hashCode());
+		result = prime * result + ((documentType == null) ? 0 : documentType.hashCode());
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (documentNumber == null) {
+			if (other.documentNumber != null)
+				return false;
+		} else if (!documentNumber.equals(other.documentNumber))
+			return false;
+		if (documentType != other.documentType)
+			return false;
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (lastName == null) {
+			if (other.lastName != null)
+				return false;
+		} else if (!lastName.equals(other.lastName))
+			return false;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
 	}
 	
 }

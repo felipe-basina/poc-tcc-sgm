@@ -101,7 +101,7 @@ public class UserProfileServiceTest {
 	}
 	
 	private Optional<UserProfile> servidor() {
-		UserProfile servidor = new UserProfile(UserProfileService.SERVIDOR_ID, "SEVIDOR", null);
+		UserProfile servidor = new UserProfile(UserProfileService.SERVIDOR_ID, "SERVIDOR", null);
 		return Optional.of(servidor);
 	}
 
