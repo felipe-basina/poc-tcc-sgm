@@ -34,7 +34,7 @@ public class UserProfileService {
 		}
 		CheckUserResponse checkUserResponse = this.safimAPIClient.checkServerUser(userInDTO.getDocumentNumber());
 		if (checkUserResponse.getServerUser()) {
-			log.info("User {} is servidor profile!", userInDTO.getUserName());
+			log.info("User {} has servidor profile!", userInDTO.getUserName());
 			return this.userProfileRepository.findById(SERVIDOR_ID).get();
 		}
 		return this.userProfileRepository.findById(MUNICIPE_ID).get();
