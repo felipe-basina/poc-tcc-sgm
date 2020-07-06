@@ -2,11 +2,14 @@ package poc.tcc.sgm.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import lombok.extern.slf4j.Slf4j;
 import poc.tcc.sgm.dtos.UserInDTO;
 import poc.tcc.sgm.dtos.UserOutDTO;
-import poc.tcc.sgm.gateways.SafimAPIClient;
+import poc.tcc.sgm.models.User;
+import poc.tcc.sgm.models.UserProfile;
 import poc.tcc.sgm.repositories.UserRepository;
 
 @Slf4j
@@ -15,25 +18,29 @@ public class UserService {
 
 	private UserRepository userRepository;
 	
-	private SafimAPIClient safimAPIClient;
-	
 	private UserVerificationService userVerificationService;
 	
+	private UserProfileService userProfileService;
+	
 	@Autowired
-	public UserService(UserRepository userRepository, SafimAPIClient safimAPIClient,
-			UserVerificationService userVerificationService) {
+	public UserService(UserRepository userRepository, UserVerificationService userVerificationService,
+			UserProfileService userProfileService) {
 		this.userRepository = userRepository;
-		this.safimAPIClient = safimAPIClient;
 		this.userVerificationService = userVerificationService;
+		this.userProfileService = userProfileService;
 	}
 	
+	@Transactional(propagation = Propagation.REQUIRED)
 	public UserOutDTO createUser(UserInDTO userInDTO) {
 		this.userVerificationService.checkUser(userInDTO);
-		return null;
+		UserProfile userProfile = this.userProfileService.getUserProfile(userInDTO);
+		User newUser = this.userRepository.save(userInDTO.convertToNewEntity(userProfile));
+		log.info("User {} | {} created!", newUser.getId(), newUser.getUserName());
+		return newUser.convertToDto();
 	}
 	
 	public UserOutDTO findByUserName(final String userName) {
-		return null;
+		return this.userVerificationService.findByUserName(userName);
 	}
 	
 }

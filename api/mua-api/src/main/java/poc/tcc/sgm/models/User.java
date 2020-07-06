@@ -1,6 +1,8 @@
 package poc.tcc.sgm.models;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -16,6 +18,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,6 +26,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import poc.tcc.sgm.constants.DocumentType;
 import poc.tcc.sgm.constants.UserStatusType;
+import poc.tcc.sgm.dtos.UserOutDTO;
 
 @Data
 @Builder
@@ -78,5 +82,28 @@ public class User implements Serializable {
 	@OneToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "PERFIL_ID", referencedColumnName = "id")
 	private UserProfile profile;
+
+	@Transient
+	private LocalDateTime convertToLocalDateTime(Date date) {
+		return date.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
+	}
+	
+	@Transient
+	public UserOutDTO convertToDto() {
+		return UserOutDTO.builder()
+				.creationDate(this.convertToLocalDateTime(this.getCreationDate()).toString())
+				.documentNumber(this.getDocumentNumber())
+				.documentType(this.getDocumentType().name())
+				.email(this.getEmail())
+				.id(this.getId())
+				.lastName(this.getLastName())
+				.name(this.getName())
+				.password(this.getPassword())
+				.profile(this.getProfile().getName())
+				.status(this.getStatus().name())
+				.updateDate(this.convertToLocalDateTime(this.getUpdateDate()).toString())
+				.userName(this.getUserName())
+			.build();
+	}
 	
 }

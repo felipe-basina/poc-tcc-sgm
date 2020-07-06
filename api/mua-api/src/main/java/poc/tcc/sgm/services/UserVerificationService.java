@@ -9,7 +9,9 @@ import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import poc.tcc.sgm.dtos.UserInDTO;
+import poc.tcc.sgm.dtos.UserOutDTO;
 import poc.tcc.sgm.exceptions.UserAlreadyExistsException;
+import poc.tcc.sgm.exceptions.UserNotFoundException;
 import poc.tcc.sgm.models.User;
 import poc.tcc.sgm.repositories.UserRepository;
 
@@ -62,6 +64,17 @@ public class UserVerificationService {
 			log.error("{}", message);
 			throw new UserAlreadyExistsException(message);
 		}
+	}
+	
+	public UserOutDTO findByUserName(final String userName) {
+		Optional<User> userOptional = this.userRepository.findByUserName(userName);
+		if (!userOptional.isPresent()) {
+			final String message = this.message.getMessage("user.not.found.username", 
+					new Object[] { userName }, Locale.getDefault());
+			log.error("{}", message);
+			throw new UserNotFoundException(message);
+		}
+		return userOptional.get().convertToDto();
 	}
 
 }

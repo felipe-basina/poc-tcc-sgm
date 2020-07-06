@@ -11,7 +11,9 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import poc.tcc.sgm.dtos.UserInDTO;
+import poc.tcc.sgm.dtos.UserOutDTO;
 import poc.tcc.sgm.exceptions.UserAlreadyExistsException;
+import poc.tcc.sgm.exceptions.UserNotFoundException;
 import poc.tcc.sgm.repositories.UserRepository;
 
 @RunWith(value = SpringJUnit4ClassRunner.class)
@@ -71,6 +73,20 @@ public class UserVerificationServiceTest {
 			.build();
 		this.userVerificationService.checkUser(userInDTO);
 		Assert.assertTrue(Boolean.TRUE);
+	}
+	
+	@Test
+	public void testFindByUserName() {
+		final String userName = "j-santocristo";
+		UserOutDTO userOutDTO = this.userVerificationService.findByUserName(userName);
+		Assert.assertNotNull(userOutDTO);
+		Assert.assertNotNull(userOutDTO.getProfile());
+	}
+	
+	@Test(expected = UserNotFoundException.class)
+	public void testFindByUserNameNotFound() {
+		final String userName = "j-santocristo2";
+		this.userVerificationService.findByUserName(userName);
 	}
 
 }
