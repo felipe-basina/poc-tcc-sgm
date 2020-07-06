@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -28,6 +29,7 @@ public class UserProfile implements Serializable {
 	@Column(name = "NOME")
 	private String name;
 	
+	@OneToOne(mappedBy = "profile")
 	private User user;
 
 }
