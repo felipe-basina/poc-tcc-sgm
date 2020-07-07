@@ -1,52 +1,55 @@
 <!DOCTYPE html>
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      xmlns:th="http://www.thymeleaf.org">
-    <head>
-    	<title>SGM - SISTEMA DE GESTÃO INTEGRADA MUNICIPAL</title>
-	    <meta charset="utf-8"/>
-	    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-	    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        
-        <link type="text/css" th:href="@{/assets/dist/css/login.css}" rel="stylesheet">
-    </head>
-    
-    <div class="wrapper fadeInDown">
-      <div id="formContent">
-        <!-- Tabs Titles -->
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>SGM - SISTEMA DE GESTÃO INTEGRADA MUNICIPAL</title>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<link type="text/css" th:href="@{/assets/dist/css/login.css}"
+	rel="stylesheet">
+</head>
+
+<div class="wrapper fadeInDown">
+	<div id="formContent">
+		<!-- Tabs Titles -->
 
 		<div th:if="${param.error}">
-        	<div class="alert alert-danger">
-            	Credenciais inválidas!
-            </div>
-        </div>
-        
-        <div th:if="${param.logout}">
-            <div class="alert alert-info">
-                Você acabou de sair do sistema!
-            </div>
-        </div>
-    
-        <!-- Icon -->
-        <div class="fadeIn first">
-          <h2>SGM - Sistema de Gestão Integrada Municipal</h2>
-        </div>
-    
-        <!-- Login Form -->
-        <form th:action="@{/login}" method="post">
-          <input type="text" id="username" class="fadeIn second" name="username" placeholder="Usuário" autofocus="autofocus">
-          <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha">
-          <input type="submit" class="btn-lg btn-primary" value="Entrar">
-        </form>
-    
-        <!-- Remind Passowrd -->
-        <div id="formFooter">
-          <a class="underlineHover" th:href="@{/register}">Primeira ver por aqui?</a> |
-          <a class="underlineHover" href="#">Esqueceu a senha?</a>
-        </div>
-    
-      </div>
-    </div>
+			<div class="alert alert-danger">Credenciais inválidas!</div>
+		</div>
+
+		<div th:if="${param.logout}">
+			<div class="alert alert-info">Você acabou de sair do sistema!</div>
+		</div>
+
+		<!-- Icon -->
+		<div class="fadeIn first">
+			<h2>SGM - Sistema de Gestão Integrada Municipal</h2>
+		</div>
+
+		<!-- Login Form -->
+		<form th:action="@{/login}" method="post">
+			<input type="text" id="username" class="fadeIn second"
+				name="username" placeholder="Usuário" autofocus="autofocus">
+			<input type="password" id="password" class="fadeIn third"
+				name="password" placeholder="Senha"> <input type="submit"
+				class="btn-lg btn-primary" value="Entrar">
+		</form>
+
+		<!-- Remind Passowrd -->
+		<div id="formFooter">
+			<a class="underlineHover" th:href="@{/register}">Primeira ver por
+				aqui?</a> | <a class="underlineHover" href="#">Esqueceu a senha?</a>
+		</div>
+
+	</div>
+</div>
 </html>
