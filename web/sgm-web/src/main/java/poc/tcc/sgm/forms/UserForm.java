@@ -57,7 +57,7 @@ public class UserForm {
 		return this.senha.matches(REGEX);
 	}
 	
-	public Optional<String> valiationFields() {
+	public Optional<String> validationFields() {
 		if (!this.samePassword()) {
 			return Optional.of("As senhas digitadas não conferem!");
 		}

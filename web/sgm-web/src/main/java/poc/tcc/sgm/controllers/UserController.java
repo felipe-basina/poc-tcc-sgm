@@ -37,9 +37,9 @@ public class UserController {
 			return "register";
 		}
 		
-		if (userForm.valiationFields().isPresent()) {
+		if (userForm.validationFields().isPresent()) {
 			model.addAttribute("userForm", userForm);
-			model.addAttribute("errorMessage", userForm.valiationFields().get());
+			model.addAttribute("errorMessage", userForm.validationFields().get());
 			return "register";
 		}
 		
