@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 import poc.tcc.sgm.forms.UserForm;
@@ -16,12 +15,18 @@ import poc.tcc.sgm.forms.UserForm;
 public class UserController {
 
 	@PostMapping(value = "/registerUser")
-	public String registerUser(@Valid UserForm userForm, BindingResult bindingResult, Model model,
-			RedirectAttributes redir) {
+	public String registerUser(@Valid UserForm userForm, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("userForm", userForm);
 			return "register";
 		}
+		
+		if (userForm.valiationFields().isPresent()) {
+			model.addAttribute("userForm", userForm);
+			model.addAttribute("errorMessage", userForm.valiationFields().get());
+			return "register";
+		}
+		
 		log.info("Registering user {}", userForm);
 		return "redirect:/afterRegistration";
 	}

@@ -59,6 +59,9 @@ to {
 	</div>
 	<!--Card content-->
 	<div class="card-body px-lg-5 pt-0">
+		<div th:if="${errorMessage}">
+			<div class="alert alert-danger"><span th:text="${errorMessage}"></span></div>
+		</div>
 		<!-- Form -->
 		<form class="text-center" style="color: #757575;"
 			th:action="@{/registerUser}" method="post" th:object="${userForm}">
