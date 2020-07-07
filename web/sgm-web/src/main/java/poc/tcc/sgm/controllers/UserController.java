@@ -26,7 +26,7 @@ public class UserController {
 	private MuaAPIClient muaAPIClient;
 	
 	@Autowired
-	private UserController(MuaAPIClient muaAPIClient) {
+	public UserController(MuaAPIClient muaAPIClient) {
 		this.muaAPIClient = muaAPIClient;
 	}
 	
