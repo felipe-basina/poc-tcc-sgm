@@ -5,9 +5,12 @@ import java.util.Optional;
 
 import javax.validation.constraints.NotEmpty;
 
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import poc.tcc.sgm.dtos.UserInDTO;
 
 @Data
 @AllArgsConstructor
@@ -62,6 +65,22 @@ public class UserForm {
 			return Optional.of("A senha deve ter pelo menos 8 caracteres somente com letras e números");
 		}
 		return Optional.empty();
+	}
+	
+	public UserInDTO convertToDto() {
+		BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+		return UserInDTO.builder()
+				.documentNumber(this.numeroDocumento.replace(".", "")
+						.replace("-", "")
+						.replace("/", "")
+						.replace(" ", "").trim())
+				.documentType(this.tipoDocumento.trim())
+				.email(this.email.trim())
+				.lastName(this.sobreNome.trim())
+				.name(this.nome.trim())
+				.password(bCryptPasswordEncoder.encode(this.senha))
+				.userName(this.usuario.trim())
+			.build();
 	}
 	
 }
