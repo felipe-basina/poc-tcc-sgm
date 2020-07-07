@@ -30,7 +30,7 @@ public class UserController {
 		this.muaAPIClient = muaAPIClient;
 	}
 	
-	@PostMapping(value = "/registerUser")
+	@PostMapping(value = "${poc.tcc.sgm.api.user}")
 	public String registerUser(@Valid UserForm userForm, BindingResult bindingResult, Model model) {
 		if (bindingResult.hasErrors()) {
 			model.addAttribute("userForm", userForm);

@@ -13,24 +13,24 @@ import poc.tcc.sgm.forms.UserForm;
 @Controller
 public class HomeController {
 
-	@GetMapping("/")
+	@GetMapping(value = "${poc.tcc.sgm.api.home.root}")
 	public String root() {
 		return "home";
 	}
 
-	@GetMapping("/login")
+	@GetMapping(value = "${poc.tcc.sgm.api.home.login}")
 	public String login() {
 		return "login";
 	}
 
-	@GetMapping("/register")
+	@GetMapping(value = "${poc.tcc.sgm.api.home.register}")
 	public String register(Model model) {
 		model.addAttribute("userForm", new UserForm());
 		return "register";
 	}
 
-	@GetMapping(value = "/afterRegistration")
-	public RedirectView loginValidate(HttpServletRequest req, RedirectAttributes redir) {
+	@GetMapping(value = "${poc.tcc.sgm.api.home.afterRegistration}")
+	public RedirectView afterRegistration(HttpServletRequest req, RedirectAttributes redir) {
 		RedirectView redirectView = new RedirectView("/login", true);
 		redir.addFlashAttribute("register", "ok");
 		return redirectView;
