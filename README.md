@@ -13,4 +13,4 @@ Responsável por permitir a comunicação entre e com microsserviços. No caso, 
 * mua-api x safim-api
 * sgm-web x mua-api
 ##### sgm-web
-Responsável por prover as interafaces de usuário do sistema. Além disso, faz parte deste componente as funções de **autenticação** e **autorização** de usuários
+Responsável por prover as interfaces de usuário do sistema. Além disso, faz parte deste componente as funções de **autenticação** e **autorização** de usuários
