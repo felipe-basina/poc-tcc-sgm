@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<title>Redmine demo</title>
+<meta name="description" content="Redmine">
+<meta name="keywords" content="issue,bug,tracker">
+<meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="IEZgdq/RV/kpG+aZ9eNzboIEj0vrixsmop4dMLEywyd8EuIRjCo4iDbTthZjxB37atyAH6GN2rCAkcMFtmM53A==">
+<link rel="shortcut icon" href="http://demo.redmine.org/favicon.ico">
+<link rel="stylesheet" media="all" href="./assets/dist/css/jquery-ui-1.11.0.css">
+<link rel="stylesheet" media="all" href="./assets/dist/css/application.css">
+
+
+<!-- page specific tags -->
+<link rel="alternate" type="application/atom+xml" title="Redmine demo: Últimas notícias" href="http://demo.redmine.org/news.atom?key=4589cc5d6d2b929fe448c0de72755151991c8226">
+<link rel="alternate" type="application/atom+xml" title="Redmine demo: Atividade" href="http://demo.redmine.org/activity.atom?key=4589cc5d6d2b929fe448c0de72755151991c8226">
+</head>
+<body class="controller-welcome action-index">
+<div id="wrapper">
+<div id="wrapper2">
+<div id="wrapper3">
+<div id="top-menu">
+    <div id="account">
+        <ul><li><a class="my-account" href="#">Minha conta</a></li>
+<li><a class="logout" rel="nofollow" data-method="post" href="#">Sair</a></li></ul>    </div>
+    <div id="loggedas">Acessando como: <a class="user active" href="#"><span sec:authentication="name"></span></a></div>
+    <ul><li><a class="home" href="#">Página inicial</a></li>
+<li><a class="my-page" href="#">Minha página</a></li>
+<li><a class="projects" href="#">Projetos</a></li>
+<li><a class="help" href="#">Ajuda</a></li></ul></div>
+
+<div id="header">
+    <div id="quick-search">
+        <form action="#" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="✓">
+        
+        <label for="q">
+          <a accesskey="4" href="#">Busca</a>:
+        </label>
+        <input type="text" name="q" id="q" size="20" class="small" accesskey="f">
+</form>        
+    </div>
+
+    <h1>Redmine demo</h1>
+
+</div>
+
+<div id="main" class="nosidebar">
+    <div id="sidebar">
+        
+        
+    </div>
+
+    <div id="content">
+        
+        <h2>Página inicial</h2>
+
+<div class="splitcontentleft">
+  <p>This is the online Redmine demo for uses to test Redmine and its features. All the data here is temporary and may be reset at any time.</p>
+
+
+	<p>You should start to <a href="#">register for an account</a> and then:</p>
+
+
+	<ul>
+	<li>Browse the issues list and post a few updates on the issues</li>
+		<li>Try out the Wiki pages on a project</li>
+		<li>You can also <a href="#">create your own project</a> and see what can be done as a Manager</li>
+	</ul>
+
+
+	<p>Notes:</p>
+
+
+	<ul>
+	<li>Email notifications are disabled to prevent spamming</li>
+		<li>File uploads are limited to a very low size to limit disk space usage</li>
+		<li>Code repositories are disabled</li>
+	</ul>
+  <p>This demo site runs Redmine <b>3.0.0.devel.14065</b>.</p>
+  
+</div>
+
+<div class="splitcontentright">
+  <div class="projects box">
+  <h3>Últimos projetos</h3>
+    <ul>
+      <li>
+      <a href="#">Website Projects</a> (20/07/2020 20:08 h)
+      <div class="wiki">
+        <p>Hello Guys,</p>
+
+
+	<p>This is our official project management tool.</p>
+
+
+	<p>Thanks</p>
+      </div>
+      </li>
+      <li>
+      <a href="#">Abyrvalg</a> (20/07/2020 19:10 h)
+      <div class="wiki">
+        
+      </div>
+      </li>
+      <li>
+      <a href="#">Test Project</a> (20/07/2020 17:27 h)
+      <div class="wiki">
+        
+      </div>
+      </li>
+      <li>
+      <a href="#">Ejemplo</a> (20/07/2020 17:08 h)
+      <div class="wiki">
+        
+      </div>
+      </li>
+      <li>
+      <a href="#">a very special project</a> (20/07/2020 16:37 h)
+      <div class="wiki">
+        
+      </div>
+      </li>
+    </ul>
+  </div>
+    
+</div>
+
+
+        
+        <div style="clear:both;"></div>
+    </div>
+</div>
+</div>
+
+<div id="ajax-indicator" style="display:none;"><span>Carregando...</span></div>
+<div id="ajax-modal" style="display:none;"></div>
+
+<div id="footer">
+  <div class="bgl"><div class="bgr">
+    Powered by <a href="#">Redmine</a> © 2006-2015 Jean-Philippe Lang
+  </div></div>
+</div>
+</div>
+</div>
+</body></html>

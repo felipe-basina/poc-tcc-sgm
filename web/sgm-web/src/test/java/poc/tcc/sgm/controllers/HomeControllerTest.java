@@ -33,6 +33,7 @@ public class HomeControllerTest {
 	
 	private final String rootContext = "/";
 	private final String loginContext = "/login";
+	private final String mgepContext = "/mgep";
 	private final String registerContext = "/register";
 	private final String afterRegistrationContext = "/afterRegistration";
 	
@@ -44,6 +45,7 @@ public class HomeControllerTest {
 				.setSingleView(this.mockView)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.root", this.rootContext)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.login", this.loginContext)
+				.addPlaceholderValue("poc.tcc.sgm.api.home.mgep", this.mgepContext)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.register", this.registerContext)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.afterRegistration", this.afterRegistrationContext)
 			.build();
@@ -61,6 +63,13 @@ public class HomeControllerTest {
 		this.mockMvc.perform(get(this.loginContext))
 			.andExpect(status().isOk())
 			.andExpect(view().name("login"));
+	}
+
+	@Test
+	public void testMgep() throws Exception {
+		this.mockMvc.perform(get(this.mgepContext))
+			.andExpect(status().isOk())
+			.andExpect(view().name("mgep"));
 	}
 
 	@Test
