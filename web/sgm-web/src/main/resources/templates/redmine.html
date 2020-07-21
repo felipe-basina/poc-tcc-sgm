@@ -2,7 +2,7 @@
 <html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
-
+<head>
 <title>Redmine demo</title>
 <meta name="description" content="Redmine">
 <meta name="keywords" content="issue,bug,tracker">
@@ -10,8 +10,6 @@
 <meta name="csrf-token" content="IEZgdq/RV/kpG+aZ9eNzboIEj0vrixsmop4dMLEywyd8EuIRjCo4iDbTthZjxB37atyAH6GN2rCAkcMFtmM53A==">
 <link rel="shortcut icon" href="http://demo.redmine.org/favicon.ico">
 <link rel="stylesheet" media="all" href="./assets/dist/css/jquery-ui-1.11.0.css">
-<link rel="stylesheet" media="all" href="./assets/dist/css/application.css">
-
 
 <!-- page specific tags -->
 <link rel="alternate" type="application/atom+xml" title="Redmine demo: Últimas notícias" href="http://demo.redmine.org/news.atom?key=4589cc5d6d2b929fe448c0de72755151991c8226">
@@ -23,8 +21,7 @@
 <div id="wrapper3">
 <div id="top-menu">
     <div id="account">
-        <ul><li><a class="my-account" href="#">Minha conta</a></li>
-<li><a class="logout" rel="nofollow" data-method="post" href="#">Sair</a></li></ul>    </div>
+        <ul><li><a class="my-account" href="#">Minha conta</a></li></ul>    </div>
     <div id="loggedas">Acessando como: <a class="user active" href="#"><span sec:authentication="name"></span></a></div>
     <ul><li><a class="home" href="#">Página inicial</a></li>
 <li><a class="my-page" href="#">Minha página</a></li>
