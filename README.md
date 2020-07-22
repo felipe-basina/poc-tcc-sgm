@@ -1,4 +1,4 @@
-# SISTEMA DE GESTÃO INTEGRADA MUNICIPAL - SGM
+# SGM - SISTEMA DE GESTÃO INTEGRADA MUNICIPAL
 ###### Desenvolvimento da prova de conceito (POC) para trabalho de conclusão de curso pós graduação Arquitetura de Software Distribuído PUC MG
 
 ### Arquitetura
