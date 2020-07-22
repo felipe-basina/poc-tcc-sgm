@@ -50,6 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 							"/registerUser",
 							"/afterRegistration")
 					.permitAll()
+					.antMatchers("/mbi").access("hasRole('SERVIDOR')")
 					.anyRequest().authenticated()
 				.and()
 					.formLogin()

@@ -34,6 +34,7 @@ public class HomeControllerTest {
 	private final String rootContext = "/";
 	private final String loginContext = "/login";
 	private final String mgepContext = "/mgep";
+	private final String mbiContext = "/mbi";
 	private final String registerContext = "/register";
 	private final String afterRegistrationContext = "/afterRegistration";
 	
@@ -46,6 +47,7 @@ public class HomeControllerTest {
 				.addPlaceholderValue("poc.tcc.sgm.api.home.root", this.rootContext)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.login", this.loginContext)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.mgep", this.mgepContext)
+				.addPlaceholderValue("poc.tcc.sgm.api.home.mbi", this.mbiContext)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.register", this.registerContext)
 				.addPlaceholderValue("poc.tcc.sgm.api.home.afterRegistration", this.afterRegistrationContext)
 			.build();
@@ -70,6 +72,13 @@ public class HomeControllerTest {
 		this.mockMvc.perform(get(this.mgepContext))
 			.andExpect(status().isOk())
 			.andExpect(view().name("mgep"));
+	}
+
+	@Test
+	public void testMbi() throws Exception {
+		this.mockMvc.perform(get(this.mbiContext))
+			.andExpect(status().isOk())
+			.andExpect(view().name("mbi"));
 	}
 
 	@Test

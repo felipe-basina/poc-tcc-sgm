@@ -28,6 +28,11 @@ public class HomeController {
 		return "mgep";
 	}
 
+	@GetMapping(value = "${poc.tcc.sgm.api.home.mbi}")
+	public String mbi() {
+		return "mbi";
+	}
+
 	@GetMapping(value = "${poc.tcc.sgm.api.home.register}")
 	public String register(Model model) {
 		model.addAttribute("userForm", new UserForm());

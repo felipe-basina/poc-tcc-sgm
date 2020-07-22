@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author"
+	content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+<meta name="generator" content="Jekyll v4.0.1">
+<title>SGM - SISTEMA DE GESTÃO INTEGRADA MUNICIPAL</title>
+
+<!-- Bootstrap core CSS -->
+<link th:href="@{/assets/dist/css/bootstrap.css}" rel="stylesheet">
+
+<style>
+.bd-placeholder-img {
+	font-size: 1.125rem;
+	text-anchor: middle;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+@media ( min-width : 768px) {
+	.bd-placeholder-img-lg {
+		font-size: 3.5rem;
+	}
+}
+
+.b1 {
+	height: 80%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.b2 {
+	height: 20%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#wrapper {
+	background: white;
+}
+
+#top-menu ul {
+	margin: 0;
+	padding: 0;
+}
+
+#top-menu li {
+	float: left;
+	list-style-type: none;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px 0px 0px;
+	white-space: nowrap;
+}
+
+#top-menu a {
+	color: #fff;
+	margin-right: 8px;
+	font-weight: bold;
+}
+
+#top-menu {
+	background: #3E5B76;
+	color: #fff;
+	height: 1.8em;
+	font-size: 0.8em;
+	padding: 2px 2px 0px 6px;
+}
+
+#account {
+	float: right;
+}
+
+#top-menu #loggedas {
+	float: right;
+	margin-right: 0.5em;
+	color: #fff;
+}
+
+#header {
+	min-height: 5.3em;
+	margin: 0;
+	background-color: #628DB6;
+	color: #f8f8f8;
+	padding: 4px 8px 20px 6px;
+	position: relative;
+}
+
+#header a {
+	color: #f8f8f8;
+}
+
+#header h1 a.ancestor {
+	font-size: 80%;
+}
+
+/***** Links *****/
+a, a:link, a:visited {
+	color: #169;
+	text-decoration: none;
+}
+
+a:hover, a:active {
+	color: #c61a1a;
+	text-decoration: underline;
+}
+
+a img {
+	border: 0;
+}
+
+#quick-search {
+	float: right;
+}
+
+#main.nosidebar #sidebar {
+	display: none;
+}
+
+#main.nosidebar #content {
+	width: auto;
+	border-right: 0;
+}
+
+#main {
+	background-color: #EEEEEE;
+}
+
+#sidebar {
+	float: right;
+	width: 22%;
+	position: relative;
+	z-index: 9;
+	padding: 0;
+	margin: 0;
+}
+
+* html #sidebar {
+	width: 22%;
+}
+
+#sidebar h3 {
+	font-size: 14px;
+	margin-top: 14px;
+	color: #666;
+}
+
+#sidebar hr {
+	width: 100%;
+	margin: 0 auto;
+	height: 1px;
+	background: #ccc;
+	border: 0;
+}
+
+* html #sidebar hr {
+	width: 95%;
+	position: relative;
+	left: -6px;
+	color: #ccc;
+}
+
+#sidebar .contextual {
+	margin-right: 1em;
+}
+
+#sidebar ul {
+	margin: 0;
+	padding: 0;
+}
+
+#sidebar ul li {
+	list-style-type: none;
+	margin: 0px 2px 0px 0px;
+	padding: 0px 0px 0px 0px;
+}
+
+#content {
+	width: 75%;
+	background-color: #fff;
+	margin: 0px;
+	border-right: 1px solid #ddd;
+	padding: 6px 10px 10px 10px;
+	z-index: 10;
+}
+
+* html #content {
+	width: 75%;
+	padding-left: 0;
+	margin-top: 0px;
+	padding: 6px 10px 10px 10px;
+}
+
+html>body #content {
+	min-height: 600px;
+}
+
+* html body #content {
+	height: 600px;
+} /* IE */
+.splitcontentleft {
+	float: left;
+	width: 49%;
+}
+
+.splitcontentright {
+	float: right;
+	width: 49%;
+}
+
+.box {
+	padding: 6px;
+	margin-bottom: 10px;
+	background-color: #f6f6f6;
+	color: #505050;
+	line-height: 1.5em;
+	border: 1px solid #e4e4e4;
+	word-wrap: break-word;
+}
+
+/***** Wiki *****/
+div.wiki table {
+	border-collapse: collapse;
+	margin-bottom: 1em;
+}
+
+div.wiki table, div.wiki td, div.wiki th {
+	border: 1px solid #bbb;
+	padding: 4px;
+}
+
+div.wiki .noborder, div.wiki .noborder td, div.wiki .noborder th {
+	border: 0;
+}
+
+div.wiki .external {
+	background-position: 0% 60%;
+	background-repeat: no-repeat;
+	padding-left: 12px;
+	background-image: url(../images/external.png);
+}
+
+div.wiki a {
+	word-wrap: break-word;
+}
+
+div.wiki a.new {
+	color: #b73535;
+}
+
+div.wiki ul, div.wiki ol {
+	margin-bottom: 1em;
+}
+
+div.wiki pre {
+	margin: 1em 1em 1em 1.6em;
+	padding: 8px;
+	background-color: #fafafa;
+	border: 1px solid #e2e2e2;
+	width: auto;
+	overflow-x: auto;
+	overflow-y: hidden;
+}
+
+div.wiki ul.toc {
+	background-color: #ffffdd;
+	border: 1px solid #e4e4e4;
+	padding: 4px;
+	line-height: 1.2em;
+	margin-bottom: 12px;
+	margin-right: 12px;
+	margin-left: 0;
+	display: table
+}
+
+* html div.wiki ul.toc {
+	width: 50%;
+} /* IE6 doesn't autosize div */
+div.wiki ul.toc.right {
+	float: right;
+	margin-left: 12px;
+	margin-right: 0;
+	width: auto;
+}
+
+div.wiki ul.toc.left {
+	float: left;
+	margin-right: 12px;
+	margin-left: 0;
+	width: auto;
+}
+
+div.wiki ul.toc ul {
+	margin: 0;
+	padding: 0;
+}
+
+div.wiki ul.toc li {
+	list-style-type: none;
+	margin: 0;
+	font-size: 12px;
+}
+
+div.wiki ul.toc li li {
+	margin-left: 1.5em;
+	font-size: 10px;
+}
+
+div.wiki ul.toc a {
+	font-size: 0.9em;
+	font-weight: normal;
+	text-decoration: none;
+	color: #606060;
+}
+
+div.wiki ul.toc a:hover {
+	color: #c61a1a;
+	text-decoration: underline;
+}
+
+/***** Ajax indicator ******/
+#ajax-indicator {
+	position: absolute; /* fixed not supported by IE */
+	background-color: #eee;
+	border: 1px solid #bbb;
+	top: 35%;
+	left: 40%;
+	width: 20%;
+	font-weight: bold;
+	text-align: center;
+	padding: 0.6em;
+	z-index: 100;
+	opacity: 0.5;
+}
+
+html>body #ajax-indicator {
+	position: fixed;
+}
+
+#ajax-indicator span {
+	background-position: 0% 40%;
+	background-repeat: no-repeat;
+	background-image: url(../images/loading.gif);
+	padding-left: 26px;
+	vertical-align: bottom;
+}
+
+#footer {
+	clear: both;
+	border-top: 1px solid #bbb;
+	font-size: 0.9em;
+	color: #aaa;
+	padding: 5px;
+	text-align: center;
+	background: #fff;
+}
+</style>
+<!-- Custom styles for this template -->
+<link th:href="@{/assets/dist/css/homepage.css}" rel="stylesheet">
+</head>
+<body>
+	<div
+		class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+		<h5 class="my-0 mr-md-auto font-weight-normal">
+			<a th:href="@{/}">SGM - SISTEMA DE GESTÃO INTEGRADA MUNICIPAL</a>
+		</h5>
+		<nav class="my-2 my-md-0 mr-md-3">
+			<a class="p-2 text-dark" href="#">Prefeitura Bom Destino</a>
+			<div class="btn-group">
+				<button type="button"
+					class="btn btn-outline-primary dropdown-toggle"
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Olá, <span sec:authentication="name"></span>
+				</button>
+				<div class="dropdown-menu">
+					<a class="dropdown-item" href="#">Meu perfil</a> <a
+						class="dropdown-item" href="#">Alterar senha</a>
+					<div class="dropdown-divider"></div>
+					<a class="dropdown-item" th:href="@{/logout}">Sair</a>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<div
+		class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+		<h1 class="display-4">Módulo de Business Intelligence</h1>
+		<p class="lead">Big Data & Data Mine & Data Warehouse</p>
+	</div>
+
+	<div class="container">
+		<img th:src="@{/img/hue.png}" style="display: flex; width: 100%;">
+
+		<footer class="pt-4 my-md-5 pt-md-5 border-top">
+			<div class="row">
+				<div class="col-12 col-md">
+					<small class="d-block mb-3 text-muted">&copy; 2017-2020 :: Bom Destino :: Prosperidade, saúde e segurança para todos</small>
+				</div>
+				<div class="col-6 col-md">
+					<h5>Geral</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">Fale conosco</a></li>
+						<li><a class="text-muted" href="#">Você na mídia</a></li>
+						<li><a class="text-muted" href="#">Transparência municipal</a></li>
+						<li><a class="text-muted" href="#">Responsabilidade social</a></li>
+						<li><a class="text-muted" href="#">Bom Destino saúde</a></li>
+						<li><a class="text-muted" href="#">Bom Destino segurança</a></li>
+						<li><a class="text-muted" href="#">Bom Destino sustentável</a></li>
+						<li><a class="text-muted" href="#">Sobre</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5>Concursos</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">Calendários</a></li>
+						<li><a class="text-muted" href="#">Provas passadas</a></li>
+						<li><a class="text-muted" href="#">Lista de aprovados</a></li>
+					</ul>
+				</div>
+				<div class="col-6 col-md">
+					<h5>Agenda</h5>
+					<ul class="list-unstyled text-small">
+						<li><a class="text-muted" href="#">Eventos</a></li>
+						<li><a class="text-muted" href="#">Feriados</a></li>
+					</ul>
+				</div>
+			</div>
+		</footer>
+	</div>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+	crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery.slim.min.js"><\/script>')</script>
+<script src="./assets/dist/js/bootstrap.bundle.js"></script>
+</html>
