@@ -9,7 +9,7 @@ Responsável por verificar se um usuário encontra-se cadastrado e ativo no Sist
 ##### mua-api
 Responsável por cadastrar e recuperar dados de usuário. Para o cadastro de um usuário este componente deverá se comunicar com o componente **safim-api**, através do componente **sgm-api-gateway**, para definir o tipo de perfil correto para o mesmo
 ##### sgm-api-gateway
-Responsável por permitir a comunicação entre e com microsserviços. No caso, as seguintes comunicações são consideradas:
+Responsável por permitir a comunicação com e entre microsserviços. No caso, as seguintes comunicações são consideradas:
 * mua-api x safim-api
 * sgm-web x mua-api
 ##### sgm-web
